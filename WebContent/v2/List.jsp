@@ -1,6 +1,6 @@
 <%@page import="mybean.BoardDto"%>
 <%@page import="java.util.Vector"%>
-<%@ page contentType="text/html;charset=euc-kr" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <jsp:useBean id="dao" class="mybean.BoardDao" />
 <%! 
 	public String getParam(HttpServletRequest req, String pName){
@@ -11,14 +11,14 @@
 			return "";
 		}
 	}
-int totalRecord = 0;//°Ô½ÃÆÇ ÀüÃ¼±Û¼ö
-int numPerPage = 5;//ÇÑÆäÀÌÁö¿¡ º¸ÀÏ °Ô½Ã±Û¼ö
-int totalPage = 0;//ÃÖ´ëÆäÀÌÁö
-int nowPage = 0;//ÇöÀç ÆäÀÌÁö
-int beginPerPage = 0;//½ÃÀÛÆäÀÌÁö
-int pagePerBlock = 3;//ºí·Ï ´ç ÆäÀÌÁö
-int totalBlock = 0;//ÀüÃ¼ ºí·Ï
-int nowBlock = 0;//ÇöÀç ºí·Ï
+int totalRecord = 0;//ê²Œì‹œíŒ ì „ì²´ê¸€ìˆ˜
+int numPerPage = 5;//í•œí˜ì´ì§€ì— ë³´ì¼ ê²Œì‹œê¸€ìˆ˜
+int totalPage = 0;//ìµœëŒ€í˜ì´ì§€
+int nowPage = 0;//í˜„ì¬ í˜ì´ì§€
+int beginPerPage = 0;//ì‹œì‘í˜ì´ì§€
+int pagePerBlock = 3;//ë¸”ë¡ ë‹¹ í˜ì´ì§€
+int totalBlock = 0;//ì „ì²´ ë¸”ë¡
+int nowBlock = 0;//í˜„ì¬ ë¸”ë¡
 %>
 
 <%
@@ -39,27 +39,27 @@ int nowBlock = 0;//ÇöÀç ºí·Ï
 	
 	Vector vec = (Vector)dao.getBoardList(keyField, keyWord);
 	
-	// ¿©±â¼­ºÎÅÍ ÆäÀÌÂ¡ ±â´É Ãß°¡
-	totalRecord = vec.size();//°Ô½ÃÆÇ ÀüÃ¼ ±Û¼ö
-	totalPage = (int)Math.ceil(((double)totalRecord/numPerPage));//ÀüÃ¼ÆäÀÌÁö=°Ô½ÃÆÇÀüÃ¼±Û¼ö / ÇÑÆäÀÌÁö¿¡ º¸ÀÏ °Ô½Ã±Û¼ö(5)
+	// ì—¬ê¸°ì„œë¶€í„° í˜ì´ì§• ê¸°ëŠ¥ ì¶”ê°€
+	totalRecord = vec.size();//ê²Œì‹œíŒ ì „ì²´ ê¸€ìˆ˜
+	totalPage = (int)Math.ceil(((double)totalRecord/numPerPage));//ì „ì²´í˜ì´ì§€=ê²Œì‹œíŒì „ì²´ê¸€ìˆ˜ / í•œí˜ì´ì§€ì— ë³´ì¼ ê²Œì‹œê¸€ìˆ˜(5)
 	
-	if(request.getParameter("nowPage") != null){//ÇöÀç ÆäÀÌÁö
+	if(request.getParameter("nowPage") != null){//í˜„ì¬ í˜ì´ì§€
 		nowPage = Integer.parseInt(request.getParameter("nowPage"));
 	}
 	
-	if(request.getParameter("nowBlock") != null){//ÇöÀç ºí·Ï
+	if(request.getParameter("nowBlock") != null){//í˜„ì¬ ë¸”ë¡
 		nowBlock = Integer.parseInt(request.getParameter("nowBlock"));
 	}
 	
-	beginPerPage = nowPage * numPerPage;//½ÃÀÛÆäÀÌÁö=ÇöÀç ÆäÀÌÁö * ÇÑÆäÀÌÁö¿¡ º¸ÀÏ °Ô½Ã±Û¼ö(5)
-	totalBlock = (int)Math.ceil(((double)totalPage/pagePerBlock));//ÀüÃ¼ºí·Ï=ÀüÃ¼ÆäÀÌÁö / ºí·Ï´çÆäÀÌÁö
+	beginPerPage = nowPage * numPerPage;//ì‹œì‘í˜ì´ì§€=í˜„ì¬ í˜ì´ì§€ * í•œí˜ì´ì§€ì— ë³´ì¼ ê²Œì‹œê¸€ìˆ˜(5)
+	totalBlock = (int)Math.ceil(((double)totalPage/pagePerBlock));//ì „ì²´ë¸”ë¡=ì „ì²´í˜ì´ì§€ / ë¸”ë¡ë‹¹í˜ì´ì§€
 %>
 <HTML>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
 	function check(){
 		if(document.search.keyWord.value == ""){
-			alert("°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			document.search.keyWord.focus();
 			return;
 		}
@@ -93,26 +93,27 @@ int nowBlock = 0;//ÇöÀç ºí·Ï
 	<td align=center colspan=2>
 		<table border=0 width=100% cellpadding=2 cellspacing=0>
 			<tr align=center bgcolor=#D0D0D0 height=120%>
-				<td> ¹øÈ£ </td>
-				<td> Á¦¸ñ </td>
-				<td> ÀÌ¸§ </td>
-				<td> ³¯Â¥ </td>
-				<td> Á¶È¸¼ö </td>
+				<td> ë²ˆí˜¸ </td>
+				<td> ì œëª© </td>
+				<td> ì´ë¦„ </td>
+				<td> ë‚ ì§œ </td>
+				<td> ì¡°íšŒìˆ˜ </td>
 			</tr>
 		<%
 			if(vec == null || vec.isEmpty()){
 		%>
-				<div style="color:red">µî·ÏµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.</div>
+				<div style="color:red">ë“±ë¡ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</div>
 		<%	
 			}
-			else{//ÀÌºÎºĞÀÌ ¸®½ºÆ® Ãâ·Â!!!!!!d
+			else{//ì´ë¶€ë¶„ì´ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥!!!!!!d
 				for(int i=beginPerPage; i<beginPerPage+numPerPage; i++){
 					if(i == totalRecord){
 						break;
 					}
 					
-					BoardDto dto = (BoardDto)vec.get(i);//ÀÌ°Ô Á¤È®ÇÑ ¹«½¼¶æÀÎ°¡¿ä??
-		%>
+					BoardDto dto = (BoardDto)vec.get(i);//ì´ê²Œ ì •í™•í•œ ë¬´ìŠ¨ëœ»ì¸ê°€ìš”?? vec.get(i);ëŠ” ê°ê°ì— dtoë¥¼ ê°€ì ¸ì˜¤ëŠ” ê±´ë° BoardDto dto ì—¬ê¸°ì— ì„ì‹œë¡œ
+														//ì €ì¥í•´ë‘”ë‹¤. ë°‘ì— ì¶œë ¥í•˜ê¸°ìœ„í•´ì„œ
+		%>									
 			<tr>
 				<td><%=dto.getB_num()%></td>
 				<td><a href="javascript:read('<%=dto.getB_num()%>')"><%=dto.getB_subject()%></a></td>
@@ -130,11 +131,11 @@ int nowBlock = 0;//ÇöÀç ºí·Ï
 <tr>
 	<td><BR><BR></td>
 </tr>
-<!-- ÆäÀÌÁö Ãâ·Â -->
+<!-- í˜ì´ì§€ ì¶œë ¥ -->
 <tr>
 	<td align="left">Go to Page 
 		<%if(nowBlock > 0){ %>
-			<a href="List.jsp?nowBlock=<%=nowBlock-1%>&nowPage=<%=pagePerBlock*(nowBlock-1)%>">ÀÌÀü <%=pagePerBlock %>°³</a>&nbsp;&nbsp;&nbsp;
+			<a href="List.jsp?nowBlock=<%=nowBlock-1%>&nowPage=<%=pagePerBlock*(nowBlock-1)%>">ì´ì „ <%=pagePerBlock %>ê°œ</a>&nbsp;&nbsp;&nbsp;
 		<%} %>
 		
 		<%
@@ -149,28 +150,28 @@ int nowBlock = 0;//ÇöÀç ºí·Ï
 		%>
 		&nbsp;&nbsp;&nbsp;
 		<%if(totalBlock > nowBlock+1){ %>
-			<a href="List.jsp?nowBlock=<%=nowBlock+1%>&nowPage=<%=pagePerBlock*(nowBlock+1)%>">´ÙÀ½<%=pagePerBlock %>°³</a>
+			<a href="List.jsp?nowBlock=<%=nowBlock+1%>&nowPage=<%=pagePerBlock*(nowBlock+1)%>">ë‹¤ìŒ<%=pagePerBlock %>ê°œ</a>
 		<%} %>
 	</td>
 	<td align=right>
-		<a href="Post.jsp">[±Û¾²±â]</a>
-		<a href="javascript:list()">[Ã³À½À¸·Î]</a>
+		<a href="Post.jsp">[ê¸€ì“°ê¸°]</a>
+		<a href="javascript:list()">[ì²˜ìŒìœ¼ë¡œ]</a>
 	</td>
 </tr>
 </table>
 <BR>
-<form action="List.jsp" name="search" method="post"><!-- ¿©±â´Â Ã£±â!!!!!!! -->
+<form action="List.jsp" name="search" method="post"><!-- ì—¬ê¸°ëŠ” ì°¾ê¸°!!!!!!! -->
 	<table border=0 width=527 align=center cellpadding=4 cellspacing=0>
 	<tr>
 		<td align=center valign=bottom>
 			<select name="keyField" size="1">
-				<option value="b_name" <%if(keyField.equals("b_name")){%> selected="selected" <%}%>> ÀÌ¸§
-				<option value="b_subject" <%if(keyField.equals("b_subject")){%> selected="selected" <%}%>> Á¦¸ñ
-				<option value="b_content" <%if(keyField.equals("b_content")){%> selected="selected" <%}%>> ³»¿ë
+				<option value="b_name" <%if(keyField.equals("b_name")){%> selected="selected" <%}%>> ì´ë¦„
+				<option value="b_subject" <%if(keyField.equals("b_subject")){%> selected="selected" <%}%>> ì œëª©
+				<option value="b_content" <%if(keyField.equals("b_content")){%> selected="selected" <%}%>> ë‚´ìš©
 			</select>
 
 			<input type="text" size="16" name="keyWord" value="<%=getParam(request, "keyWord")%>" />
-			<input type="button" value="Ã£±â" onClick="check()">
+			<input type="button" value="ì°¾ê¸°" onClick="check()">
 			<input type="hidden" name="page" value= "0">
 		</td>
 	</tr>

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.sql.*" %>
 <%request.setCharacterEncoding("euc-kr"); %>
 <!DOCTYPE html>
@@ -15,9 +15,9 @@
 	response.sendRedirect("List.jsp");
 %>
 	
-	<h2>»ç¿ø Á¤º¸°¡ Àß Ãß°¡µÇ¾ú½À´Ï´Ù.</h2>
-	<a href="post.jsp">ÀÔ·ÂÈ­¸éÀ¸·Î</a><br/>
-	<a href="index.jsp">¸ÞÀÎÈ­¸éÀ¸·Î</a>
+	<h2>ì‚¬ì› ì •ë³´ê°€ ìž˜ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.</h2>
+	<a href="post.jsp">ìž…ë ¥í™”ë©´ìœ¼ë¡œ</a><br/>
+	<a href="index.jsp">ë©”ì¸í™”ë©´ìœ¼ë¡œ</a>
 
 </body>
 </html>

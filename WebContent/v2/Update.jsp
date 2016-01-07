@@ -1,5 +1,5 @@
 <%@page import="mybean.BoardDto"%>
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <jsp:useBean id="dao" class="mybean.BoardDao" />
 <%
 int b_num = Integer.parseInt(request.getParameter("b_num"));
@@ -20,7 +20,7 @@ String b_pass = dto.getB_pass();
 <script>
 	function check() {
 	   if (document.form.pass.value == "") {
-		 alert("¼öÁ¤À» À§ÇØ ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		 alert("ìˆ˜ì •ì„ ìœ„í•´ íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 	     form.pass.focus();
 		 return false;
 		 }
@@ -33,7 +33,7 @@ String b_pass = dto.getB_pass();
 <br><br>
 <table width=460 cellspacing=0 cellpadding=3>
   <tr>
-   <td bgcolor=#FF9018  height=21 align=center class=m>¼öÁ¤ÇÏ±â</td>
+   <td bgcolor=#FF9018  height=21 align=center class=m>ìˆ˜ì •í•˜ê¸°</td>
   </tr>
 </table>
 
@@ -44,7 +44,7 @@ String b_pass = dto.getB_pass();
   <td align=center>
    <table border=0>
     <tr>
-     <td width=20%>¼º ¸í</td>
+     <td width=20%>ì„± ëª…</td>
      <td width=80%>
 	  <input type=text name="b_name" size=30 maxlength=20 value="<%=b_name %>">
 	 </td>
@@ -56,29 +56,29 @@ String b_pass = dto.getB_pass();
 	 </td>
     </tr>
 	<tr>
-     <td width=20%>Á¦ ¸ñ</td>
+     <td width=20%>ì œ ëª©</td>
      <td width=80%>
 	  <input type=text name="b_subject" size=50 maxlength=50 value="<%=b_subject %>">
 	 </td>
     <tr>
-     <td width=20%>³» ¿ë</td>
+     <td width=20%>ë‚´ ìš©</td>
      <td width=80%>
 	  <textarea name="b_content" rows=10 cols=50><%=b_content %></textarea>
 	 </td>
     </tr>
 	<tr>
-     <td width=20%>ºñ¹Ğ ¹øÈ£</td> 
+     <td width=20%>ë¹„ë°€ ë²ˆí˜¸</td> 
      <td width=80%><input type=password name=pass size=15 maxlength=15>
-      ¼öÁ¤½Ã¿¡´Â ºñ¹Ğ¹øÈ£°¡ ÇÊ¿äÇÕ´Ï´Ù.</td>
+      ìˆ˜ì •ì‹œì—ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í•„ìš”í•©ë‹ˆë‹¤.</td>
     </tr>
 	<tr>
      <td colspan=2 height=5><hr size=1></td>
     </tr>
 	<tr>
      <td colspan=2>
-	  <input type=Button value="¼öÁ¤¿Ï·á" onClick="check()">
-      <input type=reset value="´Ù½Ã¼öÁ¤"> 
-      <input type=button value="µÚ·Î" onClick="history.back()">
+	  <input type=Button value="ìˆ˜ì •ì™„ë£Œ" onClick="check()">
+      <input type=reset value="ë‹¤ì‹œìˆ˜ì •"> 
+      <input type=button value="ë’¤ë¡œ" onClick="history.back()">
 	 </td>
     </tr> 
    </table>

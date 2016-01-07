@@ -1,24 +1,24 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>¸ÞÀÎ ÆäÀÌÁö</h1>
-	<h2>¸Þ´º</h2>
+	<h1>ë©”ì¸ íŽ˜ì´ì§€</h1>
+	<h2>ë©”ë‰´</h2>
 	<ul>
-	<li>È¸¿ø°¡ÀÔ</li>
-	<li>°ü¸®ÀÚ</li>
-	<li>¼îÇÎ¸ô</li>
+	<li>íšŒì›ê°€ìž…</li>
+	<li>ê´€ë¦¬ìž</li>
+	<li>ì‡¼í•‘ëª°</li>
 	</ul>
 	
-	<h2>°Ô½ÃÆÇ</h2>
+	<h2>ê²Œì‹œíŒ</h2>
 	<ol>
-	<li><a href="v1/List.jsp">Ã¹¹øÂ° ¹öÀü =(ºóÀ» »ç¿ë)</a></li>
-	<li><a href="v2/List.jsp">µÎ¹øÂ° ¹öÀü =(ÆäÀÌÁö)</a></li>
-	<li><a href="v3/List.jsp">¼¼¹øÂ° ¹öÀü =(´äº¯´Þ±â)</a></li>
-	<li><a href="v4/List.jsp">¼¼¹øÂ° ¹öÀü =(´äº¯´Þ±â)</a></li>
+	<li><a href="v1/List.jsp">ì²«ë²ˆì§¸ ë²„ì „ =(ë¹ˆì„ ì‚¬ìš©)</a></li>
+	<li><a href="v2/List.jsp">ë‘ë²ˆì§¸ ë²„ì „ =(íŽ˜ì´ì§€)</a></li>
+	<li><a href="v3/List.jsp">ì„¸ë²ˆì§¸ ë²„ì „ =(ë‹µë³€ë‹¬ê¸°)</a></li>
+	<li><a href="v4/List.jsp">ì„¸ë²ˆì§¸ ë²„ì „ =(ë‹µë³€ë‹¬ê¸°)</a></li>
 	</ol>
 	
 </body>

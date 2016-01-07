@@ -1,6 +1,6 @@
 <%@ page import="mybean.BoardDto"%>
 <%@ page import="mybean.BoardDao"%>
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 
 <%
    request.setCharacterEncoding("euc-kr");
@@ -21,8 +21,8 @@
        dao.updateBoard(dto);
 %>
    <script>
-   alert("╪Жа╓╣г╬З╫ю╢о╢ы.");
-   alert("╠ш╦Я╥ою╦╥н юл╣©гу╢о╢ы.");
+   alert("Л┬≤Л═∙К░≤Л≈┬Л┼╣К▀┬К▀╓.");
+   alert("Й╦─К╙╘К║²Л°╪К║° Л²╢К▐≥М∙╘К▀┬К▀╓.");
    location.href="List.jsp";
    </script>
 
@@ -33,7 +33,7 @@
 %>
 
       <script>
-         alert("фп╫╨©Ж╣Е╟║ ф╡╥х╢б╣╔©Д?");
+         alert("М▄╗Л┼╓Л⌡▄К⌠°Й╟─ М▀─К═╦К┼■К█╟Л ■?");
          history.back();
       </script>
 
