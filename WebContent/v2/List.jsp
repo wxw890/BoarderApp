@@ -105,7 +105,7 @@ int nowBlock = 0;//현재 블록
 				<div style="color:red">등록된 글이 없습니다.</div>
 		<%	
 			}
-			else{//이부분이 리스트 출력!!!!!!
+			else{//이부분이 리스트 출력!!!!!!d
 				for(int i=beginPerPage; i<beginPerPage+numPerPage; i++){
 					if(i == totalRecord){
 						break;
